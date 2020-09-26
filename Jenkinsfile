@@ -24,19 +24,5 @@ pipeline {
 				}
 			}
 		}
-		stage("Wait time") {
-			steps {
-				sleep(5)
-			}
-		}
-		stage("Deployment to Dev environment") {
-			steps {
-				sshagent( credentials: ['dockerdeploy'] ) {
-					sh 'ssh -o StrictHostKeyChecking=no dockerdeploy@13.233.254.50 ${dockerRunCommand}'
-				}	
-			}
-		
-		}
-
 	}
 }
