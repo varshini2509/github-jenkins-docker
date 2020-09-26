@@ -1,8 +1,7 @@
 # github--jenkins--docker
 
-##############################
-Here are the detailed steps needed to implement this pipeline
-##############################
+HERE ARE THE DETAILED STEPS NEEDED TO IMPLEMENT THIS PIPELINE
+
 1. Install Jenkins
     1. Install GIT 
     2. Install docker
