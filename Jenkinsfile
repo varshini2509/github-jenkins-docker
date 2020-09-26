@@ -31,7 +31,7 @@ pipeline {
 		}
 		stage("Deployment to Dev environment") {
 			steps {
-				ssh dockerdeploy@13.233.254.50 ${dockerRunCommand}	 
+				sh ssh dockerdeploy@13.233.254.50 ${dockerRunCommand}	 
 			}
 		}
 
