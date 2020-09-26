@@ -33,8 +33,7 @@ pipeline {
 			steps {
 				sshagent(['dockerdeploy']) {
 	            sh 'ssh -o StrictHostKeyChecking=no dockerdeploy@13.233.254.50 ${dockerRunCommand}'
-				}	
-				docker 
+				}	 
 			}
 		}
 
