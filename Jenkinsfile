@@ -1,22 +1,26 @@
 pipeline {
+	environment {
+		registry = "chakilams3/github-jenkins-docker"
+		registryCredential = 'dockerhub'
+		dockerImage = ''
+	}
 	agent any
 	stages {
-		stage("Cloning") { 
+		stage("Building docker image") { 
 			steps {
-				echo "This is testing the Cloning stage"
-
+				script {
+					dockerImage = docker.build registry + ":$BUILD_NUMBER"
+				}
 			}
 		}
-		stage("building") { 
+		stage("Pushing image to DockerHub") { 
 			steps {
-				echo "This is testing the building stage"
-
-			}
-		}
-		stage("Deploying") { 
-			steps {
-				echo "This is testing the Deploying stage"
-
+				script {
+					docker.withRegistry( '', registryCredential ) {
+						dockerImage.push()
+						dockerImage.push( 'latest' )
+					}
+				}
 			}
 		}
 		stage("Testing") {
