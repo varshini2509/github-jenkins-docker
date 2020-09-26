@@ -1,4 +1,4 @@
-# github--jenkins--docker
+# Github--Jenkins--Docker
 
 HERE ARE THE DETAILED STEPS NEEDED TO IMPLEMENT THIS PIPELINE
 
