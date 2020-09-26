@@ -32,7 +32,7 @@ pipeline {
 		stage("Deployment to Dev environment") {
 			steps {
 				sshagent( credentials: ['dockerdeploy'] ) {
-					sh 'ssh -o StrictHostKeyChecking=no dockerdeploy@13.233.254.50 ${dockerRunCommand}'
+					ssh dockerdeploy@13.233.254.50 ${dockerRunCommand}
 				}	 
 			}
 		}
